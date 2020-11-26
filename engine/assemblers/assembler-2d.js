@@ -30,4 +30,6 @@ let _updateColor = cc.Assembler2D.prototype.updateColor;
 cc.Assembler2D.prototype.updateColor = function(comp, color) {
     this._dirtyPtr[0] |= cc.Assembler.FLAG_VERTICES_OPACITY_CHANGED;
     _updateColor.call(this, comp, color);
+    if (this.cacheColor)
+        this.cacheColor();
 };
